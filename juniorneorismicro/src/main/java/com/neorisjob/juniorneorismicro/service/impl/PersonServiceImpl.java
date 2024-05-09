@@ -4,9 +4,6 @@ import com.neorisjob.juniorneorismicro.entity.Person;
 import com.neorisjob.juniorneorismicro.repository.PersonRepository;
 import com.neorisjob.juniorneorismicro.service.PersonService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -30,15 +27,15 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person updatePerson(Person person) {
-        Person existingPerson = personRepository.findById(person.getId()).get();
+        Person existingPerson = personRepository.findById(person.getPersonId()).get();
         existingPerson.setName(person.getName());
         existingPerson.setGender(person.getGender());
         existingPerson.setAge(person.getAge());
         existingPerson.setIdentification(person.getIdentification());
         existingPerson.setAddress(person.getAddress());
         existingPerson.setTelephone(person.getTelephone());
-        Person updatedPerson = personRepository.save(existingPerson);
-        return updatedPerson;
+
+        return personRepository.save(existingPerson);
     }
 
     @Override

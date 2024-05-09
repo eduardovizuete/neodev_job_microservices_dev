@@ -12,11 +12,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "persons")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long personId;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

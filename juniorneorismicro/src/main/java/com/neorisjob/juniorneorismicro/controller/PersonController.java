@@ -35,12 +35,12 @@ public class PersonController {
     // http://localhost:8080/api/person/1
     public ResponseEntity<Person> updatePerson(@PathVariable("id") Long personId,
                                            @RequestBody Person person){
-        person.setId(personId);
+        person.setPersonId(personId);
         Person updatedPerson = personService.updatePerson(person);
         return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
     }
 
-    // build selete person REST API
+    // build delete person REST API
     @DeleteMapping("{id}")
     public ResponseEntity<String> deletePerson(@PathVariable("id") Long personId){
         personService.deletePerson(personId);
