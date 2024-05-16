@@ -3,10 +3,10 @@ package com.job.micro.accounttx.service.impl;
 import com.job.micro.accounttx.entity.Account;
 import com.job.micro.accounttx.entity.Client;
 import com.job.micro.accounttx.repository.AccountRepository;
-import com.job.micro.accounttx.repository.ClientRepository;
 import com.job.micro.accounttx.service.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Optional;
 
@@ -15,11 +15,17 @@ import java.util.Optional;
 public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
-    private ClientRepository clientRepository;
+
+    private WebClient webClient;
 
     @Override
     public Account createAccount(Account account) {
-        Optional<Client> client = clientRepository.findByClientId(account.getClient().getClientId());
+        Optional<Client> client = Optional.ofNullable(webClient.get()
+                .uri("http://localhost:8080/api/clients/" + account.getClient().getClientId())
+                .retrieve()
+                .bodyToMono(Client.class)
+                .block());
+
         account.setClient(client.get());
         return accountRepository.save(account);
     }
