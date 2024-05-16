@@ -1,14 +1,15 @@
 package com.neorisjob.juniorneorismicro.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,9 +30,8 @@ public class Client extends Person implements Serializable {
     @Column(nullable = false)
     private String status;
 
-//
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-//    @JsonIgnoreProperties(value = { "client" }, allowSetters = true)
-//    private Set<Account> accounts = new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    @JsonIgnoreProperties(value = { "client" }, allowSetters = true)
+    private Set<Account> accounts = new HashSet<>();
 
 }
