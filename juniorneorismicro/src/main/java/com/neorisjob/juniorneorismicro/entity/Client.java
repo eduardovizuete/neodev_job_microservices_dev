@@ -31,7 +31,7 @@ public class Client extends Person implements Serializable {
     private String status;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    @JsonIgnoreProperties(value = { "client" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "client", "transactions" }, allowSetters = true)
     private Set<Account> accounts = new HashSet<>();
 
 }

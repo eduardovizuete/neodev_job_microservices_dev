@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -38,7 +40,11 @@ public class Account implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties(value = { "person", "accounts" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "accounts" }, allowSetters = true)
     private Client client;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+    @JsonIgnoreProperties(value = { "account" }, allowSetters = true)
+    private Set<Transaction> transactions = new HashSet<>();
 
 }
