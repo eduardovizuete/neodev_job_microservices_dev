@@ -27,7 +27,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person updatePerson(Person person) {
-        Person existingPerson = personRepository.findById(person.getPersonId()).get();
+        Person existingPerson = personRepository.findById(person.getId()).get();
         existingPerson.setName(person.getName());
         existingPerson.setGender(person.getGender());
         existingPerson.setAge(person.getAge());
@@ -39,8 +39,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void deletePerson(Long userId) {
-        personRepository.deleteById(userId);
+    public void deletePerson(Long personId) {
+        personRepository.deleteById(personId);
     }
 
 }

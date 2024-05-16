@@ -25,7 +25,7 @@ public class ClientController {
     // build get client by id REST API
     // http://localhost:8080/api/client/1
     @GetMapping("{id}")
-    public ResponseEntity<Client> getClientById(@PathVariable("id") String clientId){
+    public ResponseEntity<Client> getClientById(@PathVariable("id") Long clientId){
         Client client = clientService.getClientByClientId(clientId);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
@@ -33,16 +33,16 @@ public class ClientController {
     // build update client REST API
     @PutMapping("{id}")
     // http://localhost:8080/api/client/1
-    public ResponseEntity<Client> updateClient(@PathVariable("id") String clientId,
+    public ResponseEntity<Client> updateClient(@PathVariable("id") Long clientId,
                                                @RequestBody Client client){
-        client.setClientId(clientId);
+        client.setId(clientId);
         Client updatedClient = clientService.updateClient(client);
         return new ResponseEntity<>(updatedClient, HttpStatus.OK);
     }
 
     // build delete client REST API
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteClient(@PathVariable("id") String clientId){
+    public ResponseEntity<String> deleteClient(@PathVariable("id") Long clientId){
         clientService.deleteByClientId(clientId);
         return new ResponseEntity<>("Client successfully deleted!", HttpStatus.OK);
     }

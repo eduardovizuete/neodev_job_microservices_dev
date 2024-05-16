@@ -6,10 +6,10 @@ public interface ClientService {
 
     Client createClient(Client client);
 
-    Client getClientByClientId(String clientId);
+    Client getClientByClientId(Long clientId);
 
     Client updateClient(Client client);
 
-    void deleteByClientId(String clientId);
+    void deleteByClientId(Long clientId);
 
 }

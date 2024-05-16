@@ -2,6 +2,7 @@ package com.neorisjob.juniorneorismicro.service.impl;
 
 import com.neorisjob.juniorneorismicro.entity.Client;
 import com.neorisjob.juniorneorismicro.repository.ClientRepository;
+import com.neorisjob.juniorneorismicro.repository.PersonRepository;
 import com.neorisjob.juniorneorismicro.service.ClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,14 +21,14 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client getClientByClientId(String clientId) {
+    public Client getClientByClientId(Long clientId) {
         Optional<Client> client = clientRepository.findByClientId(clientId);
         return client.get();
     }
 
     @Override
     public Client updateClient(Client client) {
-        Client existingClient = clientRepository.findByClientId(client.getClientId()).get();
+        Client existingClient = clientRepository.findByClientId(client.getId()).get();
         existingClient.setName(client.getName());
         existingClient.setGender(client.getGender());
         existingClient.setAge(client.getAge());
@@ -41,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void deleteByClientId(String clientId) {
+    public void deleteByClientId(Long clientId) {
         Client existingClient = clientRepository.findByClientId(clientId).get();
         clientRepository.delete(existingClient);
     }

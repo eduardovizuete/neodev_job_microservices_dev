@@ -10,6 +10,6 @@ public interface PersonService {
 
     Person updatePerson(Person person);
 
-    void deletePerson(Long userId);
+    void deletePerson(Long personId);
 
 }

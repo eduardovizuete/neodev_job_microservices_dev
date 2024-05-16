@@ -35,7 +35,7 @@ public class PersonController {
     // http://localhost:8080/api/person/1
     public ResponseEntity<Person> updatePerson(@PathVariable("id") Long personId,
                                            @RequestBody Person person){
-        person.setPersonId(personId);
+        person.setId(personId);
         Person updatedPerson = personService.updatePerson(person);
         return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
     }
