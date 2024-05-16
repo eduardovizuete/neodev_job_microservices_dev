@@ -2,6 +2,7 @@ package com.job.micro.accounttx.service.impl;
 
 import com.job.micro.accounttx.entity.Account;
 import com.job.micro.accounttx.entity.Transaction;
+import com.job.micro.accounttx.exception.UnavailableBalanceException;
 import com.job.micro.accounttx.repository.AccountRepository;
 import com.job.micro.accounttx.repository.TransactionRepository;
 import com.job.micro.accounttx.service.TransactionService;
@@ -28,6 +29,10 @@ public class TransactionServiceImpl implements TransactionService {
                 transaction.setBalance(account.getBalance() + transaction.getAmount());
                 break;
             case WITHDRAWAL:
+                if (transaction.getAmount() > account.getBalance()) {
+                    throw new UnavailableBalanceException("Balance unavailable");
+                }
+
                 transaction.setBalance(account.getBalance() - transaction.getAmount());
                 break;
         }
