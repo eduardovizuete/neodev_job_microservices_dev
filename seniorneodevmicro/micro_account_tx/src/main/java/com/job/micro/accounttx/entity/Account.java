@@ -33,7 +33,7 @@ public class Account implements Serializable {
     private String type;
 
     @Column(nullable = false)
-    private double balance;
+    private Double balance;
 
     @Column(nullable = false)
     private String status;

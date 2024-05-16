@@ -1,6 +1,7 @@
 package com.job.micro.accounttx.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.job.micro.accounttx.entity.enumeration.TypeTx;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,11 +29,13 @@ public class Transaction implements Serializable {
     @Column(name = "date")
     private Instant date;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String type;
+    private TypeTx type;
 
     @Column(name = "amount")
     private Double amount;
+
 
     @Column(name = "balance")
     private Double balance;

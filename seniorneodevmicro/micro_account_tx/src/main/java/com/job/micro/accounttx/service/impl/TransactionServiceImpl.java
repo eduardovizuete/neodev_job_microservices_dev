@@ -19,8 +19,22 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction createTransaction(Transaction transaction) {
-        Optional<Account> account = accountRepository.findById(transaction.getAccount().getId());
-        transaction.setAccount(account.get());
+        Optional<Account> accountExist = accountRepository.findById(transaction.getAccount().getId());
+        Account account = accountExist.get();
+        transaction.setAccount(account);
+
+        switch (transaction.getType()) {
+            case DEPOSIT:
+                transaction.setBalance(account.getBalance() + transaction.getAmount());
+                break;
+            case WITHDRAWAL:
+                transaction.setBalance(account.getBalance() - transaction.getAmount());
+                break;
+        }
+
+        account.setBalance(transaction.getBalance());
+        accountRepository.save(account);
+
         return transactionRepository.save(transaction);
     }
 
