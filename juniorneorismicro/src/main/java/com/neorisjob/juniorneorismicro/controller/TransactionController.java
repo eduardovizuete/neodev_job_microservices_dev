@@ -5,11 +5,13 @@ import com.neorisjob.juniorneorismicro.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/transactions")
+@Transactional
 public class TransactionController {
     
     private TransactionService txService;
