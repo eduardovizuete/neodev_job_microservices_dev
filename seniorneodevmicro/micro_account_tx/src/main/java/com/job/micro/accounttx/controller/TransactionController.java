@@ -1,7 +1,7 @@
-package com.job.micro.personclient.controller;
+package com.job.micro.accounttx.controller;
 
-import com.job.micro.personclient.service.TransactionService;
-import com.job.micro.personclient.entity.Transaction;
+import com.job.micro.accounttx.service.TransactionService;
+import com.job.micro.accounttx.entity.Transaction;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

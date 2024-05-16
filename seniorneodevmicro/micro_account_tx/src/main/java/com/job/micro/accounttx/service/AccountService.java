@@ -1,6 +1,6 @@
-package com.job.micro.personclient.service;
+package com.job.micro.accounttx.service;
 
-import com.job.micro.personclient.entity.Account;
+import com.job.micro.accounttx.entity.Account;
 
 public interface AccountService {
 

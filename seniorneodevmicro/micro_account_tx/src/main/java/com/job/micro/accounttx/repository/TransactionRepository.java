@@ -1,6 +1,6 @@
-package com.job.micro.personclient.repository;
+package com.job.micro.accounttx.repository;
 
-import com.job.micro.personclient.entity.Transaction;
+import com.job.micro.accounttx.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {

@@ -1,6 +1,6 @@
-package com.job.micro.personclient.repository;
+package com.job.micro.accounttx.repository;
 
-import com.job.micro.personclient.entity.Client;
+import com.job.micro.accounttx.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,10 +1,10 @@
-package com.job.micro.personclient;
+package com.job.micro.accounttx;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MicroAppPersonClient {
+class MicroAppAccountTx {
 
 	@Test
 	void contextLoads() {

@@ -1,10 +1,10 @@
-package com.job.micro.personclient.service.impl;
+package com.job.micro.accounttx.service.impl;
 
-import com.job.micro.personclient.entity.Account;
-import com.job.micro.personclient.entity.Transaction;
-import com.job.micro.personclient.repository.AccountRepository;
-import com.job.micro.personclient.repository.TransactionRepository;
-import com.job.micro.personclient.service.TransactionService;
+import com.job.micro.accounttx.entity.Account;
+import com.job.micro.accounttx.entity.Transaction;
+import com.job.micro.accounttx.repository.AccountRepository;
+import com.job.micro.accounttx.repository.TransactionRepository;
+import com.job.micro.accounttx.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

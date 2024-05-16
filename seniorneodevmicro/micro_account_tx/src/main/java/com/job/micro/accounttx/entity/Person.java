@@ -1,4 +1,4 @@
-package com.job.micro.personclient.entity;
+package com.job.micro.accounttx.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

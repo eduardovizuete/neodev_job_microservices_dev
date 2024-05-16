@@ -1,4 +1,4 @@
-package com.job.micro.personclient.entity;
+package com.job.micro.accounttx.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
