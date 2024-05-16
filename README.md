@@ -1,3 +1,6 @@
-# neoris_job_microservices_junior
-# Job application neoris microservices junior
+# Job application devsu-neor microservices junior
 ### Rest Api Persons
+### Rest API Client
+### Rest API Person and Client
+#### Refactor Person, Client Entity and inheritance strategy
+### Rest API Account
