@@ -1,11 +1,10 @@
-package com.job.micro.accounttx.controller;
+package com.job.micro.personclient.controller;
 
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.core5.http.HttpResponse;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 
