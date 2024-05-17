@@ -16,4 +16,4 @@
 ### Microservice Account & Transacction - Exception Handling 
 ### Rest API Report account statement
 ### Unit Test Domain / Entity class Client
-
+### Integration test Client Rest API get by clientId
