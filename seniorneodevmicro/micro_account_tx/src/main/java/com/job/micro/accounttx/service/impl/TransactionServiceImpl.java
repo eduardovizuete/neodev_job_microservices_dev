@@ -9,6 +9,8 @@ import com.job.micro.accounttx.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +25,7 @@ public class TransactionServiceImpl implements TransactionService {
         Optional<Account> accountExist = accountRepository.findById(transaction.getAccount().getId());
         Account account = accountExist.get();
         transaction.setAccount(account);
+        transaction.setBalanceBeforeTx(account.getBalance());
 
         switch (transaction.getType()) {
             case DEPOSIT:
@@ -63,6 +66,18 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void deleteTransaction(Long transactionId) {
         transactionRepository.deleteById(transactionId);
+    }
+
+    @Override
+    public List<Transaction> getTransactionsByAccountId(Long accountId) {
+        List<Transaction> transactions = transactionRepository.findAllByAccountId(accountId);
+        return transactions;
+    }
+
+    @Override
+    public List<Transaction> getTransactionByAccountIdAndDateBetween(Long accountId, Instant dateStart, Instant dateEnd) {
+        List<Transaction> transactions = transactionRepository.findAllByAccountIdAndDateBetween(accountId, dateStart, dateEnd);
+        return transactions;
     }
 
 }

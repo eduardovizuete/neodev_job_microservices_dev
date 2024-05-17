@@ -36,6 +36,9 @@ public class Transaction implements Serializable {
     @Column(name = "amount")
     private Double amount;
 
+    @Column(name = "balanceBeforeTx")
+    private Double balanceBeforeTx;
+
     @Column(name = "balance")
     private Double balance;
 
