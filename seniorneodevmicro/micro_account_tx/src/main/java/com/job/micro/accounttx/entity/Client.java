@@ -34,4 +34,31 @@ public class Client extends Person implements Serializable {
     @JsonIgnoreProperties(value = { "client", "transactions" }, allowSetters = true)
     private Set<Account> accounts = new HashSet<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Client)) {
+            return false;
+        }
+        return getClientId() != null && getClientId().equals(((Client) o).getClientId());
+    }
+
+    @Override
+    public int hashCode() {
+        // implement hashcode using jpa entity identifier
+        return getClass().hashCode();
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + getClientId() +
+                ", password='" + getPassword() + "'" +
+                ", status='" + getStatus() + "'" +
+                "}";
+    }
+
 }
