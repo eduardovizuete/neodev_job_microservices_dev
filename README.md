@@ -21,3 +21,4 @@
 ### Script database schema and tables sql
 ### Rest API Report account statement - refactor update fields
 ### Microservices Asynchronous Communication between services Account and Client
+### Postman proyect to test API REST and update Script database schema and tables sql
