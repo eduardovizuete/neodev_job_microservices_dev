@@ -18,3 +18,4 @@
 ### Unit Test Domain / Entity class Client
 ### Integration test Client Rest API get by clientId
 ### Docker containers dockerfile and docker compose
+### Script database schema and tables sql
