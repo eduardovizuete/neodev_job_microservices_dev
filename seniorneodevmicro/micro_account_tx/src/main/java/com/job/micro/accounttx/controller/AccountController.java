@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
@@ -22,6 +23,16 @@ public class AccountController {
     public ResponseEntity<Account> createAccount(@RequestBody Account account){
         Account savedAccount = accountService.createAccount(account);
         return new ResponseEntity<>(savedAccount, HttpStatus.CREATED);
+    }
+
+    // build create account REST API asynchronous
+    // http://localhost:8080/api/account/createAsync
+    @PostMapping("/createAsync")
+    public Mono<ResponseEntity<Account>> createAccountAsync(@RequestBody Account account){
+        Mono<Account> savedAccount = accountService.createAccountAsync(account);
+        return savedAccount.map(acc -> {
+            return new ResponseEntity<>(acc, HttpStatus.CREATED);
+        });
     }
 
     // build get account by id REST API
