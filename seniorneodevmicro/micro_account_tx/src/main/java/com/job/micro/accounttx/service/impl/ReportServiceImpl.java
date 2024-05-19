@@ -45,11 +45,11 @@ public class ReportServiceImpl implements ReportService {
                 reportDto.setName(client.getName());
                 reportDto.setNumberAcc(account.getNumber());
                 reportDto.setTypeAcc(account.getType());
-                reportDto.setBalanceTx(tx.getBalance());
+                reportDto.setBalanceBeforeTx(tx.getBalanceBeforeTx());
                 reportDto.setStatus(account.getStatus());
                 reportDto.setAmount(tx.getAmount());
                 reportDto.setTypeTx(tx.getType());
-                reportDto.setBalanceAcc(account.getBalance());
+                reportDto.setBalanceTx(tx.getBalance());
                 transactions.add(reportDto);
             }
         }

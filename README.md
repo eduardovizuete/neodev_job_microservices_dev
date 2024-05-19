@@ -19,3 +19,4 @@
 ### Integration test Client Rest API get by clientId
 ### Docker containers dockerfile and docker compose
 ### Script database schema and tables sql
+### Rest API Report account statement - refactor update fields

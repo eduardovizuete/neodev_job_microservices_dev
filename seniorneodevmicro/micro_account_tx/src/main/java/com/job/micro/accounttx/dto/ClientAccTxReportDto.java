@@ -18,10 +18,10 @@ public class ClientAccTxReportDto {
     private String name;
     private String numberAcc;
     private String typeAcc;
+    private Double balanceBeforeTx;
+    private TypeTx typeTx;
+    private Double amount;
     private Double balanceTx;
     private String status;
-    private Double amount;
-    private TypeTx typeTx;
-    private Double balanceAcc;
 
 }
