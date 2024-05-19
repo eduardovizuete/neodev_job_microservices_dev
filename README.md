@@ -17,3 +17,4 @@
 ### Rest API Report account statement
 ### Unit Test Domain / Entity class Client
 ### Integration test Client Rest API get by clientId
+### Docker containers dockerfile and docker compose

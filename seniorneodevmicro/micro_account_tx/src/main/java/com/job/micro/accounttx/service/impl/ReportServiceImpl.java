@@ -27,7 +27,7 @@ public class ReportServiceImpl implements ReportService {
         List<ClientAccTxReportDto> transactions = new ArrayList<>();
 
         Optional<Client> clientByClientId = Optional.ofNullable(webClient.get()
-                .uri("http://localhost:8080/api/clients/" + clientId)
+                .uri("http://micropc:8080/api/clients/" + clientId)
                 .retrieve()
                 .bodyToMono(Client.class)
                 .block());

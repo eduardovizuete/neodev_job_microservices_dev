@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account createAccount(Account account) {
         Optional<Client> client = Optional.ofNullable(webClient.get()
-                .uri("http://localhost:8080/api/clients/" + account.getClient().getClientId())
+                .uri("http://micropc:8080/api/clients/" + account.getClient().getClientId())
                 .retrieve()
                 .bodyToMono(Client.class)
                 .block());
